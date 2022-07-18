@@ -1,6 +1,6 @@
 # Instant DexNerf
 
-Depth estimation of transparent objects using only posed multiview RGB images. The project was inspired by [Dex-NeRF: Using a Neural Radiance field to Grasp Transparent Objects](https://sites.google.com/view/dex-nerf) and [Instant Neural Graphics Primitives](https://nvlabs.github.io/instant-ngp/). Combination of two methods provides both fast training/rendering speed and accurate depth map estimation.
+The project was inspired by [Dex-NeRF: Using a Neural Radiance field to Grasp Transparent Objects](https://sites.google.com/view/dex-nerf) and [Instant Neural Graphics Primitives](https://nvlabs.github.io/instant-ngp/). Combination of two methods provides both fast training/rendering speed and accurate depth map estimation.
 
 **Code will be released soon** 🤩🤩🤩
 

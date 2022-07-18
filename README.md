@@ -21,8 +21,9 @@ Depth estimation of transparent objects using only posed multiview RGB images. T
 
 #### Example 2
 <img width="736" height="414" src="https://user-images.githubusercontent.com/63703454/179604376-b7b6ebec-bb04-4385-aad7-88133f52847d.png">
-<img width="700" height="110" src="https://user-images.githubusercontent.com/63703454/179604566-97ade0e4-765c-4434-b100-6166805a024c.png">
+<img width="810" height="110" src="https://user-images.githubusercontent.com/63703454/179604566-97ade0e4-765c-4434-b100-6166805a024c.png">
 
+## Citation
 Kudos to the authors for their great work
 ```
 @inproceedings{IchnowskiAvigal2021DexNeRF,

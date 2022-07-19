@@ -7,21 +7,21 @@ The project was inspired by [Dex-NeRF: Using a Neural Radiance field to Grasp Tr
 ## Results
 ### Example 1
 
-<img width="736" height="414" src="https://user-images.githubusercontent.com/63703454/179602630-30016a08-e02c-4971-b796-676f96979c04.png">
-<img width="736" height="414" src="https://user-images.githubusercontent.com/63703454/179602966-24cdd54a-6509-49d0-95ad-6f1041116d73.png">
+![000039](https://user-images.githubusercontent.com/63703454/179689907-855bbce7-355e-4ec3-8d32-d9458c950dd7.png)
+![rendered_depth1](https://user-images.githubusercontent.com/63703454/179689927-d61fad50-18e1-4010-8e1b-826a2d465e4a.png)
 
 ### Example 2
 
-<img width="736" height="414" src="https://user-images.githubusercontent.com/63703454/179603164-1598cb07-4a96-47cb-b77a-0c9075b8dba9.png">
-<img width="736" height="414" src="https://user-images.githubusercontent.com/63703454/179603204-75c15303-b14e-42f2-9926-d58a5887cfcf.png">
+![000050](https://user-images.githubusercontent.com/63703454/179689986-17ca4f76-409d-430d-b2c6-51ad8461abab.png)
+![rendered_depth2](https://user-images.githubusercontent.com/63703454/179690005-c097abb0-3cf1-443c-ba83-53c2077c3e0d.png)
 
 ### Depth error
 #### Example 1
-<img width="806" height="484" src="https://user-images.githubusercontent.com/63703454/179604356-9462dc21-bd98-441d-a51e-eb2793ebf071.png">
+![error_depth1](https://user-images.githubusercontent.com/63703454/179690100-710bb937-8958-4d31-88fa-fb7f7e2499cb.png)
 
 #### Example 2
-<img width="806" height="484" src="https://user-images.githubusercontent.com/63703454/179604376-b7b6ebec-bb04-4385-aad7-88133f52847d.png">
-<img width="810" height="110" src="https://user-images.githubusercontent.com/63703454/179604566-97ade0e4-765c-4434-b100-6166805a024c.png">
+![error_depth2](https://user-images.githubusercontent.com/63703454/179690059-f3fec438-3bfd-4a0b-b4cf-2ac9dffa01ba.png)
+![cbar](https://user-images.githubusercontent.com/63703454/179690127-83629d6b-aedb-4eae-9e2b-2028e7b870d2.png)
 
 ## Citation
 Kudos to the authors for their great work

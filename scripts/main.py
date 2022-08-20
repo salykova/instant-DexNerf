@@ -121,9 +121,7 @@ def create_depthmaps(img_paths=None, depth_folder="depth", sigma_thrsh=15, train
 	snapshot_file = "base.msgpack"
 
 	if img_paths is None:
-		img_paths = ["/home/aman/tracebot/nerf-projects/data/06_drill_real",
-					 "/home/aman/tracebot/nerf-projects/data/07_mustard_real",
-					 "/home/aman/tracebot/nerf-projects/data/08_bleach_real"]
+		img_paths = ["abs. path#1", "abs. path#2, ..."]
 
 	for img_path in img_paths:
 		ours2nerf(img_path)

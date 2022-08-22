@@ -1,23 +1,28 @@
-import pyngp as ngp # noqa
+import os.path
+
+import pyngp as ngp
 from common import *
 import json
 import cv2
 
 
-def depth_est(img_path, depth_folder="depth", sigma_thrsh=15, snapshot_file="base.msgpack"):
+def depth_est(scene_dir, depth_dir="depth", sigma_thrsh=15, snapshot_file="base.msgpack"):
 
-	depth_folder_abs = img_path + "/" + depth_folder
+	depth_dir_abs = os.path.join(scene_dir, depth_dir)
 
-	if not os.path.exists(depth_folder_abs):
-		os.mkdir(depth_folder_abs)
+	if not os.path.exists(depth_dir_abs):
+		os.mkdir(depth_dir_abs)
 
-	transforms_file = img_path + "/" + "transforms.json"
+	transforms_file = os.path.join(scene_dir, "transforms.json")
+
 	poses = []
+	img_names = []
 
 	with open(transforms_file, 'r') as tf:
 		meta = json.load(tf)
 		for frame in meta['frames']:
 			poses.append(frame['transform_matrix'])
+			img_names.append(os.path.basename(frame['file_path']))
 
 	width = int(meta['w'])
 	height = int(meta['h'])
@@ -50,16 +55,15 @@ def depth_est(img_path, depth_folder="depth", sigma_thrsh=15, snapshot_file="bas
 	testbed.sigma_thrsh = sigma_thrsh
 
 	# Set camera matrix
-	for i, c2w_matrix in enumerate(poses):
+	for img_name, c2w_matrix in zip(poses, img_names):
 		testbed.set_nerf_camera_matrix(np.matrix(c2w_matrix)[:-1, :])
-
-		# Render image
+		# Render estimated depth
 		depth_raw = testbed.render(width, height, spp, True)  # raw depth values (float, in m)
 		depth_raw = depth_raw[..., 0]
 		# depth_norm = depth_raw / np.max(depth_raw)
 		depth_int = 1000 * depth_raw  # transform depth to mm
 		depth_int = depth_int.astype(np.uint16)
-		# Save rendered image
-		cv2.imwrite(depth_folder_abs + "/" + "{:06}".format(i + 1) + ".png", depth_int)
+		# Save the rendered image
+		cv2.imwrite(os.path.join(depth_dir_abs, img_name), depth_int)
 
 	ngp.free_temporary_memory()

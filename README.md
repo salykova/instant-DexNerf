@@ -2,6 +2,32 @@
 
 Depth/3D Shape estimation of transparent objects using multiview posed RGB images. The project was inspired by [Dex-NeRF: Using a Neural Radiance field to Grasp Transparent Objects](https://sites.google.com/view/dex-nerf) and [Instant Neural Graphics Primitives](https://nvlabs.github.io/instant-ngp/). Combination of two methods provides both fast training/rendering speed and accurate depth map estimation.
 
+## How to install
+For installation steps please refer to [Instant NGP](https://github.com/NVlabs/instant-ngp). 
+
+## How to run
+There is an example of a scene with transparent object. Run from the command line
+```
+./build/testbed --scene data/nerf/canister7/transforms.json
+```
+In the GUI you can adjust sigma parameter and switch between normal and Dex depth rendering. By default, sigma = 15.
+
+## How to create depth maps of captured scenes
+In ``` /scripts ``` folder there is a [main.py](https://github.com/salykovaa/instant-DexNerf/blob/main/scripts/main.py) script
+for depth map generation.
+
+1. First, fill the [scene_dirs](https://github.com/salykovaa/instant-DexNerf/blob/main/scripts/main.py#L9) list with paths to your folders with rgb images. These folders must have the following structure. In ```/data/nerf/canister7``` you can find examples of ```groundtruth_handeye.txt``` and ``` intrinsics.txt ```
+```
+├── scene_folder
+│   ├── img_dir (folder with rgb images. default "rgb", but you can change the name in main.py) 
+│   ├── groundtruth_handeye.txt (contains c2w extrinsics as quaternions for each image)
+|   ├── intrinsics.txt (w h fx 0 cx 0 fy cy 0 0 1 [360 or 180]). 180 for forward-facing scene, 360 for 360° scene.
+```
+2. Set parameters for training and rendering: ```depth_dir```, ```sigma_thrsh```, ```aabb_scale```, ``` train_steps ```
+3. Run ```main.py``` Rendered depth maps are found in ```scene_folder/depth_dir``` folder.
+
+Note: if you use camera coordinate system different from ours, please adapt ```transform_matrix``` in [ours2nerf.py](https://github.com/salykovaa/instant-DexNerf/blob/main/scripts/ours2nerf.py#L85). c2w matrices are multiplied by ```transform_matrix```
+before they written to a json file.
 
 ## Results
 ### Example 1

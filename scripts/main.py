@@ -6,7 +6,7 @@ from train import train
 from depth_est import depth_est
 
 
-def create_depthmaps(scene_dirs=None, img_dir="rgb", depth_dir="depth", sigma_thrsh=15, train_steps=1000):
+def create_depthmaps(scene_dirs=None, img_dir="rgb", depth_dir="depth", sigma_thrsh=15, aabb_scale=4, train_steps=1000):
 
 	snapshot_file = "base.msgpack"
 
@@ -16,7 +16,7 @@ def create_depthmaps(scene_dirs=None, img_dir="rgb", depth_dir="depth", sigma_th
 
 	# Create transforms.json from intrinsics and extrinsics
 	for scene_dir in scene_dirs:
-		ours2nerf(scene_dir, img_dir=img_dir)
+		ours2nerf(scene_dir, img_dir=img_dir, aabb_scale=aabb_scale)
 
 	# Train NeRF
 	for scene_dir in scene_dirs:

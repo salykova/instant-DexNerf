@@ -17,6 +17,7 @@ Depth/3D Shape estimation of transparent objects using multiview posed RGB image
 ### Depth error
 #### Example 1
 ![error_depth1](https://user-images.githubusercontent.com/63703454/179690100-710bb937-8958-4d31-88fa-fb7f7e2499cb.png)
+![cbar](https://user-images.githubusercontent.com/63703454/179690127-83629d6b-aedb-4eae-9e2b-2028e7b870d2.png)
 
 #### Example 2
 ![error_depth2](https://user-images.githubusercontent.com/63703454/179690059-f3fec438-3bfd-4a0b-b4cf-2ac9dffa01ba.png)

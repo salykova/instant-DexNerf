@@ -12,7 +12,7 @@ def create_depthmaps(scene_dirs=None, img_dir="rgb", depth_dir="depth", sigma_th
 
 	# Create example scene_dirs if None
 	if scene_dirs is None:
-		scene_dirs = [os.path.join(ROOT_DIR, "data/nerf/canister7")]
+		scene_dirs = [os.path.join(ROOT_DIR, "data/nerf/canister"), os.path.join(ROOT_DIR, "data/nerf/cluttered")]
 
 	# Create transforms.json from intrinsics and extrinsics
 	for scene_dir in scene_dirs:
@@ -27,4 +27,4 @@ def create_depthmaps(scene_dirs=None, img_dir="rgb", depth_dir="depth", sigma_th
 
 
 if __name__ == '__main__':
-	create_depthmaps()
+	create_depthmaps(train_steps=5000)

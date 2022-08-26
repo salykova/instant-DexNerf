@@ -55,7 +55,7 @@ def depth_est(scene_dir, depth_dir="depth", sigma_thrsh=15, snapshot_file="base.
 	testbed.sigma_thrsh = sigma_thrsh
 
 	# Set camera matrix
-	for img_name, c2w_matrix in zip(poses, img_names):
+	for img_name, c2w_matrix in zip(img_names, poses):
 		testbed.set_nerf_camera_matrix(np.matrix(c2w_matrix)[:-1, :])
 		# Render estimated depth
 		depth_raw = testbed.render(width, height, spp, True)  # raw depth values (float, in m)

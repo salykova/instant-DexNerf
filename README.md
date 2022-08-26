@@ -8,7 +8,7 @@ For installation steps please refer to [Instant NGP](https://github.com/NVlabs/i
 ## How to run
 There is an example of a scene with transparent object. Run from the command line
 ```
-./build/testbed --scene data/nerf/canister7/transforms.json
+./build/testbed --scene data/nerf/canister/transforms.json
 ```
 In the GUI you can adjust sigma parameter and switch between normal and Dex depth rendering. By default, sigma = 15.
 
@@ -16,7 +16,7 @@ In the GUI you can adjust sigma parameter and switch between normal and Dex dept
 In ``` /scripts ``` folder there is a [main.py](https://github.com/salykovaa/instant-DexNerf/blob/main/scripts/main.py) script
 for depth map generation.
 
-1. First, fill the [scene_dirs](https://github.com/salykovaa/instant-DexNerf/blob/main/scripts/main.py#L9) list with paths to your folders with rgb images. These folders must have the following structure. In ```/data/nerf/canister7``` you can find examples of ```groundtruth_handeye.txt``` and ``` intrinsics.txt ```
+1. First, fill the [scene_dirs](https://github.com/salykovaa/instant-DexNerf/blob/main/scripts/main.py#L9) list with paths to your folders with rgb images. These folders must have the following structure. In ```/data/nerf/canister``` you can find examples of ```groundtruth_handeye.txt``` and ``` intrinsics.txt ```
 ```
 ├── scene_folder
 │   ├── img_dir (folder with rgb images. default "rgb", but you can change the name in main.py) 
@@ -26,8 +26,10 @@ for depth map generation.
 2. Set parameters for training and rendering: ```depth_dir```, ```sigma_thrsh```, ```aabb_scale```, ``` train_steps ```
 3. Run ```main.py``` Rendered depth maps are found in ```scene_folder/depth_dir``` folder.
 
-Note: if you use camera coordinate system different from ours, please adapt ```transform_matrix``` in [ours2nerf.py](https://github.com/salykovaa/instant-DexNerf/blob/main/scripts/ours2nerf.py#L85). c2w matrices are multiplied by ```transform_matrix```
+**Note**: if you use camera coordinate system different from ours, please adapt ```transform_matrix``` in [ours2nerf.py](https://github.com/salykovaa/instant-DexNerf/blob/main/scripts/ours2nerf.py#L85). c2w matrices are multiplied by ```transform_matrix```
 before they written to the transforms.json file.
+
+**Depending on your scene geometry, you may need to tune [scale](https://github.com/salykovaa/instant-DexNerf/blob/main/scripts/ours2nerf.py#L64), [offset](https://github.com/salykovaa/instant-DexNerf/blob/main/scripts/ours2nerf.py#L43) parameters !!!**
 
 ## Results
 ### Example 1

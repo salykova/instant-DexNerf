@@ -20,7 +20,7 @@ for depth map generation.
 ```
 ├── scene_folder
 │   ├── img_dir (folder with rgb images. default "rgb", but you can change the name in main.py) 
-│   ├── groundtruth_handeye.txt (contains c2w extrinsics as quaternions for each image)
+│   ├── groundtruth_handeye.txt (contains c2w extrinsics as quaternions for each image. x,y,z,w format)
 |   ├── intrinsics.txt (w h fx 0 cx 0 fy cy 0 0 1 [360 or 180]). 180 for forward-facing scene, 360 for 360° scene.
 ```
 2. Set parameters for training and rendering: ```depth_dir```, ```sigma_thrsh```, ```aabb_scale```, ``` train_steps ```

@@ -26,8 +26,8 @@ for depth map generation.
 2. Set parameters for training and rendering: ```depth_dir```, ```sigma_thrsh```, ```aabb_scale```, ``` train_steps ```
 3. Run ```main.py``` Rendered depth maps are found in ```scene_folder/depth_dir``` folder.
 
-**Note**: if you use camera coordinate system different from ours, please adapt ```transform_matrix``` in [ours2nerf.py](https://github.com/salykovaa/instant-DexNerf/blob/main/scripts/ours2nerf.py#L85). c2w matrices are multiplied by ```transform_matrix```
-before they written to the transforms.json file.
+**Note**: if you use world coordinate system different from ours, please adapt ```transform_matrix``` in [ours2nerf.py](https://github.com/salykovaa/instant-DexNerf/blob/main/scripts/ours2nerf.py#L85). c2w matrices are multiplied by ```transform_matrix```
+before they written to the transforms.json file. Otherwise, poses are expected to be in **OPENCV** format, which means ```transform_matrix = np.identity(4)```
 
 **Depending on your scene geometry, you may need to tune [scale](https://github.com/salykovaa/instant-DexNerf/blob/main/scripts/ours2nerf.py#L64), [offset](https://github.com/salykovaa/instant-DexNerf/blob/main/scripts/ours2nerf.py#L43) parameters !!!**
 
